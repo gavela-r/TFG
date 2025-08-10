@@ -1,0 +1,48 @@
+.registro{
+    height: 780px;
+    width: 500px;
+    background-color: white;
+    margin-top: 6%;
+    margin-bottom: 2%;
+    box-shadow: 1px 3px 7px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 2%;
+
+    & .titulo{
+        padding-top: 5%;
+        text-align: center;
+    }
+
+    p{
+        text-align: center;
+        padding-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    & .nombre, .correo, .pass, .fecha, .plataforma{
+        margin: 9% 0% 0% 9%;
+    }
+
+    & #nombre, #correo, #pass, #fecha, #plataforma{
+        margin: 5% 0% 5% 9%;
+        width: 80%;
+        height: 35px;
+        border-radius: 9px;
+    }
+    
+    & #terminos{
+        margin-left: 25%; 
+       
+    }
+    
+    & .boton{
+        margin-top: 5%;
+        margin-left: 5%;
+        border-radius: 10px;
+        height: 45px;
+        width: 450px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+
+}
