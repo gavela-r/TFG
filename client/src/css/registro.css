@@ -1,0 +1,40 @@
+.registro{
+    height: 780px;
+    width: 500px;
+    background-color: white;
+    margin-top: 6%;
+    margin-bottom: 2%;
+    box-shadow: 1px 3px 7px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 2%;
+}
+.tituloUnete{
+    padding-top: 5%;
+    text-align: center;
+}
+
+.subTitulo{
+    text-align: center;
+}
+
+.nombre, .correo, .pass, .dni, .fecha{
+    margin: 1% 0% 0% 9%;
+}
+
+#nombre, #correo, #pass, #dni, #fecha{
+    margin: 2% 0% 5% 9%;
+    width: 80%;
+    height: 40px;
+    border-radius: 9px;
+}
+    
+.botonRegistro{
+    margin-top: 5%;
+    margin-left: 5%;
+    border-radius: 10px;
+    height: 45px;
+    width: 450px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+

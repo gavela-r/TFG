@@ -1,0 +1,65 @@
+*{
+    margin: 0 auto;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+} 
+
+header{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    cursor: pointer;
+}      
+
+.cabecera{
+    color: white;
+    margin: 0;   
+}
+        
+nav{
+    margin-right: 0;
+}
+
+a{
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.carrito{
+    color: white;
+    margin: 10px
+}
+
+.botones{
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    background-color: white;
+    height: 50%;
+    width: 10%;
+    border-radius: 10px;
+    cursor: pointer;         
+}
+
+.botones .login{
+    color: black;
+}
+        
+.registrarse{
+    color: black;
+}
+
+.username{
+    color: white;
+    margin: 10px;
+}
+
+.logOut{
+    margin: 0;
+}

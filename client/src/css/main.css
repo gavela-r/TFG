@@ -1,0 +1,138 @@
+.formulario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.formulario input.buscar {
+    width: 900px;
+    height: 40px;
+    border-radius: 9px 0px 0px 9px;
+    padding: 5px;
+    
+}
+
+button.btnBuscar{
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 40px;
+    border-radius: 0px 9px 9px 0px;
+    cursor: pointer;
+}
+
+.populares{
+    display: flex;
+    margin-left: 2%;
+}
+
+.juegos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 40px;
+}
+
+.juego {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 2%;
+    width: 250px;
+    height: 350px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 1px 3px 7px 1px rgba(0, 0, 0, 0.2);
+    padding-bottom: 10px;
+}
+
+img {
+    width: 100%;
+    height: 50%;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+}
+
+.descripcion {
+    flex-grow: 1;
+    padding: 10px;
+}
+
+h2 {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.boton {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+
+aside{
+    background-color: #f4f4f5;
+    height: 300px;
+}
+
+.titulo{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 2%;
+    padding-top: 2%;
+}
+        
+.categoria{
+    display: flex;
+
+}
+        
+.accion, .estrategia, .deportes, .aventura{
+    background-color: white;
+    margin-top: 4%;
+    margin-left: 5%;
+    width: 250px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 6%;       
+}
+        
+#mando, #puzle, #sport, #cohete{
+    font-size: 25px;
+}
+        
+.accion:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+        
+.estrategia:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+        
+.deportes:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+        
+.aventura:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}

@@ -1,0 +1,9 @@
+.modal-content{
+  width: 200;
+}
+
+.list-group{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

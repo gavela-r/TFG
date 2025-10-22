@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./server
+    container_name: node_backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server:/app
+    depends_on:
+      - db
+    networks:
+      - app_net
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: gameShop
+      MYSQL_USER: user
+      MYSQL_PASSWORD: contrasena
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - app_net
+
+volumes:
+  db_data:
+
+networks:
+  app_net:

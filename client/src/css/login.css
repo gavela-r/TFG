@@ -1,0 +1,54 @@
+.iniciar_sesion{
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    margin-top: 6%;
+    margin-bottom: 6%;
+    box-shadow: 1px 3px 7px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 2%;
+}
+
+h1{
+    text-align: center;
+    margin-top: 5%;
+}
+    
+.contraseña, .electronico{
+    margin: 9% 0% 0% 9%;
+}
+
+.correo{
+    margin: 5% 0% 0% 9%;
+    width: 80%;
+    height: 40px;
+    border-radius: 9px;
+}
+
+#contraseña{
+    margin: 5% 0% 0% 9%;
+    width: 80%;
+    height: 40px;
+    border-radius: 9px;
+}
+
+.btnLogin{
+    margin-top: 5%;
+    margin-left: 5%;
+    border-radius: 10px;
+    height: 45px;
+    width: 450px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.register{
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.noCuenta, .registrarse{
+    margin: 2px;
+}  
