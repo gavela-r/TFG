@@ -1,0 +1,102 @@
+.carritoModal{
+    width: 30%;
+    height: 400px;
+    border: solid black 2px;
+    background-color: white;
+    margin: 0px;
+    position: absolute;
+    z-index: 100;
+    left: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja los precios al fondo */
+}
+
+.contenidoCarrito {
+    flex-grow: 1; /* Ocupa el espacio disponible arriba */
+    overflow-y: auto; /* Scroll si hay muchos productos */
+    margin: 0px;
+}
+
+.basura{
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.contador{
+    padding: 12px 0px 0px 10px;
+    color: #6b6a6a;
+}
+
+hr{
+    margin: 0px 10px 0px 10px;
+}
+
+.juegoCarrito .fotoCarrito{
+    width: 60px;
+    height: 50px;
+    margin: 20px;
+}
+
+.juegoCarrito{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.juegoNombre, .infoJuego{
+    margin: 0px;
+    width: 250px;
+}
+
+.precio{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin: 10px;
+    border-top: 1px solid #ccc;
+
+}
+
+.cantidad{
+    margin: 0px;
+}
+
+.totalParcial{
+    margin: 0px;
+}
+
+.total{
+    margin: 0px;
+}
+
+.totalJuego{
+    margin: 0px;
+}
+
+.precioParcial, .precioTotal{
+    margin: 0px;
+}
+
+.formularioComprar{
+    padding: 10px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comprar{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300%;
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+

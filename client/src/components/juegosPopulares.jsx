@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { ModalLoading } from "./modalLoading";
+import { useContext } from "react";
+import { CarritoContext } from "../../context/CarritoContext";
 
 export function JuegosPopulares () {
     const key = "cd78ce15613642a1927ebec76a306421";
     const [todosLosJuegos, setTodosLosJuegos ] = useState([]);
     const [juegosVisibles, setJuegosVisibles] = useState([]);
     const [loading, setLoading] = useState(true);
+    const {agregarAlCarrito} = useContext(CarritoContext);
     const jueogPerPage = 5;
     
     function juegosAleatorios(juegos){
@@ -78,12 +81,16 @@ export function JuegosPopulares () {
             <div className="juegos">
                 {juegosVisibles.slice(0, jueogPerPage).map((juego, index) =>(
                     <div key={index} className='juego'>
-                        <img src={juego.background_image} alt={juego.name} />
+                        <img src={juego.background_image} alt={juego.name} className="fotoJuego"/>
                         <div className="descripcion">
                             <h2>{juego.name}</h2>
                             <p>{juego.released}</p>
                         </div>
-                        <div className="boton">Comprar</div>
+                        <div className="boton" onClick={() => agregarAlCarrito({
+                            nombre: juego.name,
+                            fecha: juego.released,
+                            imagen: juego.background_image,
+                        })}>Comprar</div>
                     </div>
                 ))}
             </div>
