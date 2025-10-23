@@ -8,6 +8,10 @@ export function Buscador(){
     const [buscador, setBuscador] = useState("");
     const key = "cd78ce15613642a1927ebec76a306421";
 
+    useEffect(() =>{
+        localStorage.setItem('buscador', buscador);
+    }, [buscador]);
+
     function buscar(e){
         e.preventDefault();
         let url = `https://api.rawg.io/api/games?key=${key}&search=${buscador}`;
@@ -28,13 +32,9 @@ export function Buscador(){
         .then(data =>{
             console.log(data)
             navigate('/juegosFiltrados', {state: {resultados: data.results}});
-        })
-
-        useEffect(() =>{
-            localStorage.setItem('buscador', buscador);
-        }, [buscador]);
-        
+        })    
     }
+    
 
     return (
         <>

@@ -1,6 +1,7 @@
 import '../css/header.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { ModalCategorias } from './modalCategoria';
+import { Carrito } from './carrito';
 import { useState } from 'react';
 
 
@@ -8,11 +9,20 @@ export function Header(){
     const userName = localStorage.getItem("nombre");
     const navigate = useNavigate();
     const [modal, setModal] = useState(false);
+    const [carrito, setCarrito] = useState(false);
     const logOut = () =>{
         localStorage.removeItem("token");
         localStorage.removeItem("nombre");
         localStorage.removeItem('rol');
         navigate("/");
+    }
+
+    function abrirCrrito(){
+        setCarrito(true)
+    }
+
+    function cerrarCarrito(){
+        setCarrito(false);
     }
 
     function abrirModal(){
@@ -51,7 +61,11 @@ export function Header(){
         </nav>
         {!userName ? (
             <>
-                <i className="fa-solid fa-cart-shopping carrito"></i>
+                {!carrito ? (
+                    <i className="fa-solid fa-cart-shopping carrito" onClick={abrirCrrito}></i>    
+                ):(
+                    <i className="fa-solid fa-cart-shopping carrito" onClick={cerrarCarrito}></i>
+                )}
                 <div className="botones" >
                     <Link to='/login' className='login'>Iniciar Sesion</Link>
                 </div>
@@ -64,14 +78,21 @@ export function Header(){
             <>
                 <div className='username'>
                     <span className='name'>{userName}</span>
-                    <i class="fa-solid fa-cart-shopping carrito"></i>
+                    {!carrito ? (
+                        <i className="fa-solid fa-cart-shopping carrito" onClick={abrirCrrito}></i>
+                    ):(
+                        <i className="fa-solid fa-cart-shopping carrito" onClick={cerrarCarrito}></i>
+                    )}
                 </div>
                 <a onClick={logOut} className='botones'>Cerrar Sesion</a>
             </>
         )}
+
+        
         
     </header>
         {modal && <ModalCategorias cerrarModal={cerrarModal} />}
+        {carrito && <Carrito cerrarCarrito={cerrarCarrito} />}
         </>
     );
 }

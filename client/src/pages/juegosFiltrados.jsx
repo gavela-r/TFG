@@ -14,7 +14,7 @@ export function JuegosFiltrados(){
                 <div className="juegos">
                     {resultados.map((juego, index) =>(
                         <div key={index} className='juego'>
-                            <img src={juego.background_image} alt={juego.name} />
+                            <img src={juego.background_image} alt={juego.name} className="fotoJuego"/>
                             <div className="descripcion">
                                 <h2>{juego.name}</h2>
                                 <p>{juego.released}</p>
