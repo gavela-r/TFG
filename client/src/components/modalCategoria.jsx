@@ -1,11 +1,18 @@
-import { useEffect, useRef } from "react"
+import { use, useEffect, useRef, useState } from "react"
 import {Modal as BootstrapModal } from 'bootstrap'
 import "../css/modal.css"
+import { useNavigate } from "react-router-dom";
 export function ModalCategorias({cerrarModal}){
     const modalRef = useRef(null);
     const instanceRef = useRef(null);
+    const navigate = useNavigate();
+    const key = "cd78ce15613642a1927ebec76a306421";
+    const [categorias, setCategorias] = useState([]);
+    let url = `https://api.rawg.io/api/genres?key=${key}`;
+    
+   
 
-   useEffect(() => {
+    useEffect(() => {
         if (modalRef.current) {
             const modalElement = modalRef.current;
             const modalInstance = new BootstrapModal(modalElement, {
@@ -13,59 +20,73 @@ export function ModalCategorias({cerrarModal}){
                 keyboard: true,
             });
 
-            instanceRef.current = new BootstrapModal(modalRef.current, {
-                backdrop: true,
-                keyboard: true,
-            });
-            instanceRef.current.show();
+            instanceRef.current = modalInstance;
 
             const handleHidden = () => cerrarModal();
-            modalRef.current.addEventListener("hidden.bs.modal", handleHidden);
+            modalElement.addEventListener("hidden.bs.modal", handleHidden);
 
             return () => {
                 modalElement.removeEventListener("hidden.bs.modal", handleHidden);
                 modalInstance.hide();
-
             };
         }
     }, [cerrarModal]);
 
+    useEffect(() =>{
+        if(instanceRef.current){
+            instanceRef.current.show();
+        }
+    }, [])
 
+    useEffect(() =>{
+        localStorage.setItem('categorias', JSON.stringify(categorias));
+    },[categorias])
+
+    useEffect(() =>{
+        fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-type": "Application/json"
+            },
+        })
+        .then(res =>{
+            if(res.ok){
+                return res.json();
+            }else{
+                throw new Error("No se pudo obtener la categorias");
+            }
+        })
+        .then(data =>{
+            setCategorias(data.results);
+            
+        })
+    }, [])
+
+    function handleClick(slug){
+        instanceRef.current.hide();
+        setTimeout(() => {
+            const backdrop = document.querySelector('.modal-backdrop');
+            if (backdrop) backdrop.remove();
+            navigate("/juegosFiltrados", { state: { genero: slug } });
+        }, 300);
+    }
+    
     return(
         <>
-            <div class="modal fade" ref={modalRef} id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Categorias</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div className="modal fade" ref={modalRef} id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h1 className="modal-title fs-5" id="exampleModalLabel">Categorias</h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <ul className="list-group">
-                                <a href=""><li className="list-group-item">Rol</li></a>
-                                 <a href=""><li className="list-group-item">Deportes</li></a>
-                                 <a href=""><li className="list-group-item">Aventuras</li></a>
-                                 <a href=""><li className="list-group-item">Militares</li></a>
-                                 <a href=""><li className="list-group-item">Estrategia</li></a>
-                                 <a href=""><li className="list-group-item">Supervivencia</li></a>
-                                 <a href=""><li className="list-group-item">Lucha</li></a>
-                                 <a href=""><li className="list-group-item">Terror</li></a>
-                                 <a href=""><li className="list-group-item">Ciencia Ficción</li></a>
-                                 <a href=""><li className="list-group-item">Simulación</li></a>
-                                 <a href=""><li className="list-group-item">Sandbox</li></a>
-                                 <a href=""><li className="list-group-item">Plataformas</li></a>
-                                 <a href=""><li className="list-group-item">Roguelike</li></a>
-                                 <a href=""><li className="list-group-item">MMORPG</li></a>
-                                 <a href=""><li className="list-group-item">Casual</li></a>
-                                 <a href=""><li className="list-group-item">Musical</li></a>
-                                 <a href=""><li className="list-group-item">Puzzle</li></a>
-                                 <a href=""><li className="list-group-item">Metroidvania</li></a>
-                                 <a href=""><li className="list-group-item">Battle Royale</li></a>
+                                {categorias.map(cat =>(
+                                 <li className="listaCategorias" key={cat.id} onClick={() => handleClick(cat.slug)}>{cat.name}</li>
+
+                                ))}
                             </ul>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary">Guardar Cambios</button>
                         </div>
                     </div>
                 </div>

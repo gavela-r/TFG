@@ -13,7 +13,8 @@ export function CarritoProvider({children}){
     }
 
     function eliminarDelCarrito(index){
-        setCarrito(prev => prev.filter((p)=>p.nombre !== index));
+        console.log(index);
+        setCarrito(prev => prev.filter((p)=>p.nombre != index));
     }
 
     function vaciarCarrito(){
