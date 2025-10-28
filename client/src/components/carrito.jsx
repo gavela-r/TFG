@@ -4,7 +4,6 @@ import { CarritoContext } from '../../context/CarritoContext';
 export function Carrito(){
     const {carrito, eliminarDelCarrito} = useContext(CarritoContext);
     const total = carrito.reduce((acc, juego) => acc + juego.precio, 0)
-    console.log(carrito)
     return(
         <>
             <div className="carritoModal">
@@ -20,7 +19,7 @@ export function Carrito(){
                             <p className='fechaJuego'>{juego.fecha}</p>
                             <p className='precioCarrito'>{juego.precio}€</p>
                         </div>
-                        <i className="fa-solid fa-trash basura" onClick={() => eliminarDelCarrito(index)}></i>
+                        <i className="fa-solid fa-trash basura" onClick={() => eliminarDelCarrito(juego.nombre)}></i>
                         </div>
                     </div>
 ))}
