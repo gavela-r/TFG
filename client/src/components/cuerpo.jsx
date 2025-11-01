@@ -8,7 +8,6 @@ export function Main() {
 
     return (
         <>
-            
             <div>
                 <Buscador />
             </div>

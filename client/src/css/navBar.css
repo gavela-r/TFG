@@ -1,0 +1,15 @@
+.offcanvas-body{
+    padding: 10px;
+    margin: 0px;
+}
+.lista{
+    list-style: none;
+}
+
+li{
+    cursor: pointer;
+}
+
+.icon{
+    margin-right: 20px;
+}

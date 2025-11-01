@@ -1,4 +1,4 @@
-import { use, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import {Modal as BootstrapModal } from 'bootstrap'
 import "../css/modal.css"
 import { useNavigate } from "react-router-dom";
@@ -6,7 +6,7 @@ export function ModalCategorias({cerrarModal}){
     const modalRef = useRef(null);
     const instanceRef = useRef(null);
     const navigate = useNavigate();
-    const key = "cd78ce15613642a1927ebec76a306421";
+    const key = "d71e279be2b44a0ea249dbd262884779";
     const [categorias, setCategorias] = useState([]);
     let url = `https://api.rawg.io/api/genres?key=${key}`;
     

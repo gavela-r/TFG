@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 export function Buscador(){
     const navigate = useNavigate();
     const [buscador, setBuscador] = useState("");
-    const key = "cd78ce15613642a1927ebec76a306421";
-
+    const key = "d71e279be2b44a0ea249dbd262884779";
+    
     useEffect(() =>{
         localStorage.setItem('buscador', buscador);
     }, [buscador]);

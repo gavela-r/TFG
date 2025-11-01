@@ -136,3 +136,30 @@ aside{
     background-color: black;
     color: white;
 }
+
+.paginacion{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.pagina{
+    margin: 0px;
+}
+
+.anterior, .siguiente{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6%;
+    height: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.left, .right{
+    margin: 0px 10px 0px 10px
+}

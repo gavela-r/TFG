@@ -2,10 +2,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import '../css/login.css'
 import { useState } from 'react'
 
-    export const saveLocalStorage = (token, nombre, rol) =>{
+    export const saveLocalStorage = (token, nombre, rol, correo, dni) =>{
         localStorage.setItem("token", token);
         localStorage.setItem("nombre", nombre);
         localStorage.setItem("rol", rol);
+        localStorage.setItem("dni", dni)
+        localStorage.setItem("correo", correo);
+        
     }
 
     export function Login(){
@@ -48,7 +51,7 @@ import { useState } from 'react'
         })
 
         .then(data =>{
-            saveLocalStorage(data.token, data.user, data.rol);
+            saveLocalStorage(data.token, data.user, data.rol, data.correo, data.dni);
             navigate("/principal");
         })
     }

@@ -3,6 +3,7 @@ import '../css/main.css';
 import { Buscador } from "../components/buscador";
 import { useState, useEffect, useContext } from "react";
 import { CarritoContext } from "../../context/CarritoContext";
+import { ModalLoading } from "../components/modalLoading";
 
 
 export function JuegosFiltrados(){
@@ -11,11 +12,15 @@ export function JuegosFiltrados(){
     const genero = location.state?.genero || [];
     const [categorias, setCategoria] = useState([]);
     const {agregarAlCarrito} = useContext(CarritoContext);
-    const key = 'cd78ce15613642a1927ebec76a306421';
-    let url =  `https://api.rawg.io/api/games?key=${key}&genres=${genero}`;
+    const [loading, setLoading] = useState(false);
+    const key = 'd71e279be2b44a0ea249dbd262884779';
+    const [pagina, setPagina] = useState(1);
+    const juegosPerPage = 10;
+    let url =  `https://api.rawg.io/api/games?key=${key}&genres=${genero}&page_size=${juegosPerPage}&page=${pagina}`;
     
 
     useEffect(() =>{
+        setLoading(true)
         fetch(url, {
             method: 'GET',
             headers: {
@@ -32,9 +37,14 @@ export function JuegosFiltrados(){
         .then(data =>{
             setCategoria(data.results);
         })
-    },[resultados])
+        .finally(() =>{
+            setLoading(false);
+        })
+        
+    },[genero, pagina])
     return (
         <>
+            <ModalLoading show={loading} />
             <Buscador />
             <main>
                 <div className="juegos">
@@ -52,8 +62,14 @@ export function JuegosFiltrados(){
                             })}>Comprar</div>
                         </div>
                     ))}
-                   
                 </div>
+                   <div className="paginacion">
+                        <button className="anterior" disabled={pagina === 1} onClick={() => setPagina(p => p - 1)}>Anterior</button>
+                        <i class="left fa-solid fa-arrow-left"></i>
+                        <span className="pagina">Página {pagina}</span>
+                        <i class="right fa-solid fa-arrow-right"></i>
+                        <button className="siguiente" onClick={() => setPagina(p => p + 1)}>Siguiente</button>
+                   </div>
             </main>
         </>
     );

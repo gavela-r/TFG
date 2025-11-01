@@ -1,7 +1,6 @@
 const bd = require('../../conexion/bd');
 const bcrypt = require('bcrypt');
 
-
 function validar(email, contrasena, dni){
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const contrasenaRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{8,}$/;
@@ -13,11 +12,11 @@ function validar(email, contrasena, dni){
 
     
     return esEmailValido && esContrasenaValida && esDniNifValido;
-
 }
 
 function registro(req, res){
     const { nombre, correo, pass, dni, fecha} = req.body;
+    
     
     if(!validar(correo, pass, dni)){
         res.status(400).json({Error: 'Correo o contraseña o dni no validos'});
@@ -56,4 +55,4 @@ function registro(req, res){
     }
 }
 
-module.exports = registro;
+module.exports = {registro, validar};

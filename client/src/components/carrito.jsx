@@ -22,7 +22,7 @@ export function Carrito(){
                         <i className="fa-solid fa-trash basura" onClick={() => eliminarDelCarrito(juego.nombre)}></i>
                         </div>
                     </div>
-))}
+                    ))}
 
                     </div>
                 <div className='precio'>

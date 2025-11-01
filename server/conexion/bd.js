@@ -5,6 +5,7 @@ const conection =  mysql.createConnection({
     user: 'root',
     password: 'root',
     database: 'gameShop',
+    
 })
 
 module.exports = conection;

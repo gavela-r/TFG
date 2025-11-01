@@ -7,6 +7,16 @@
     box-shadow: 1px 3px 7px 1px rgba(0, 0, 0, 0.2);
     border-radius: 2%;
 }
+
+.editarPerfil{
+    height: 850px;
+    width: 500px;
+    background-color: white;
+    margin-top: 6%;
+    margin-bottom: 2%;
+    box-shadow: 1px 3px 7px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 2%;
+}
 .tituloUnete{
     padding-top: 5%;
     text-align: center;
@@ -20,7 +30,7 @@
     margin: 1% 0% 0% 9%;
 }
 
-#nombre, #correo, #pass, #dni, #fecha{
+#nombre, #correo, #pass, #confirmPass, #dni, #fecha{
     margin: 2% 0% 5% 9%;
     width: 80%;
     height: 40px;
