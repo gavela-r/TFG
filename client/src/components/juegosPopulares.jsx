@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { CarritoContext } from "../../context/CarritoContext";
 
 export function JuegosPopulares () {
-    const key = "d71e279be2b44a0ea249dbd262884779";
+    const key = "375e3dcc7ff741a7b2d533c02b445fe6";
     const [todosLosJuegos, setTodosLosJuegos ] = useState([]);
     const [juegosVisibles, setJuegosVisibles] = useState([]);
     const [loading, setLoading] = useState(true);

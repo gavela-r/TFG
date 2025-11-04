@@ -13,7 +13,7 @@ export function JuegosFiltrados(){
     const [categorias, setCategoria] = useState([]);
     const {agregarAlCarrito} = useContext(CarritoContext);
     const [loading, setLoading] = useState(false);
-    const key = 'd71e279be2b44a0ea249dbd262884779';
+    const key = '375e3dcc7ff741a7b2d533c02b445fe6';
     const [pagina, setPagina] = useState(1);
     const juegosPerPage = 10;
     let url =  `https://api.rawg.io/api/games?key=${key}&genres=${genero}&page_size=${juegosPerPage}&page=${pagina}`;

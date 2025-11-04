@@ -6,7 +6,7 @@ export function ModalCategorias({cerrarModal}){
     const modalRef = useRef(null);
     const instanceRef = useRef(null);
     const navigate = useNavigate();
-    const key = "d71e279be2b44a0ea249dbd262884779";
+    const key = "375e3dcc7ff741a7b2d533c02b445fe6";
     const [categorias, setCategorias] = useState([]);
     let url = `https://api.rawg.io/api/genres?key=${key}`;
     
