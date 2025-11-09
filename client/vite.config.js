@@ -7,6 +7,9 @@ export default defineConfig({
    server:{
     proxy:{
       "/user": "http://localhost:5000",
+      "/juegos": "http://localhost:5000",
+      "/categorias": "http://localhost:5000",
+      "/filtroCategoria": "http://localhost:5000",
     }
   }
 })

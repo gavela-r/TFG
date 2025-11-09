@@ -11,7 +11,10 @@ import { JuegosFiltrados } from './pages/juegosFiltrados'
 import { EditarPerfil} from './pages/editarPerfil'
 import { CarritoProvider } from '../context/CarritoContext';
 import { isTokenExpired } from './helper/auth';
+import {FiltroBuscador} from './pages/juegosFiltradosBuscador'
+import {Favoritos} from "./pages/favoritos";
 import { useEffect } from 'react';
+import { FavoritosContext, FavoritosProvider } from '../context/FavoritosContext';
 
 function App() {
   const navigate = useNavigate();
@@ -26,18 +29,22 @@ function App() {
 
   return (
     <div>
-      <CarritoProvider>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/registrarse" element={<Registro />} />
-            <Route path='/principal' element={<Principal />} />
-            <Route path='/juegosFiltrados' element={<JuegosFiltrados />} />
-            <Route path='/editarPerfil' element={<EditarPerfil />} />
-          </Route>
-        </Routes>
-      </CarritoProvider>
+      <FavoritosProvider>
+        <CarritoProvider>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/registrarse" element={<Registro />} />
+              <Route path='/principal' element={<Principal />} />
+              <Route path='/juegosFiltrados' element={<JuegosFiltrados />} />
+              <Route path='/juegosFiltradosBuscador' element={<FiltroBuscador />} />
+              <Route path='/editarPerfil' element={<EditarPerfil />} />
+              <Route path='/favoritos' element={<Favoritos />} />
+            </Route>
+          </Routes>
+        </CarritoProvider>
+      </FavoritosProvider>
     </div>
   )
 }

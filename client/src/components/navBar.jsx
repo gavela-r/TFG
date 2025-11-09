@@ -8,6 +8,10 @@ export function NavBar(){
         navigate("/editarPerfil");
     }
 
+    function linkFavoritos(){
+        navigate("/favoritos");
+    }
+
     return (
         <>
             <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -22,7 +26,7 @@ export function NavBar(){
                         <h5><li onClick={linkPerfil}><i className="icon fa-solid fa-pen-to-square"></i>Editar Perfil</li></h5>
                         <h5><li><i className="icon fa-solid fa-cart-shopping" id="carrito"></i>Pedidos</li></h5>
                         <h5><li><i className="icon fa-solid fa-wallet"></i>Fondos</li></h5>
-                        <h5><li><i className="icon fa-solid fa-heart"></i>Favoritos</li></h5>
+                        <h5><li onClick={linkFavoritos}><i className="icon fa-solid fa-heart"></i>Favoritos</li></h5>
                     </ul>
                 </div>
             </div>

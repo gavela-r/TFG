@@ -6,15 +6,14 @@ import { useNavigate } from 'react-router-dom';
 export function Buscador(){
     const navigate = useNavigate();
     const [buscador, setBuscador] = useState("");
-    const key = "375e3dcc7ff741a7b2d533c02b445fe6";
-    
+
     useEffect(() =>{
         localStorage.setItem('buscador', buscador);
     }, [buscador]);
 
     function buscar(e){
         e.preventDefault();
-        let url = `https://api.rawg.io/api/games?key=${key}&search=${buscador}`;
+        let url = `/juegos?nombre=${buscador}`;
 
         fetch(url, {
             method: 'GET',
@@ -30,8 +29,8 @@ export function Buscador(){
             }
         })
         .then(data =>{
-            console.log(data)
-            navigate('/juegosFiltrados', {state: {resultados: data.results}});
+            console.log(data.results);
+            navigate('/juegosFiltradosBuscador', {state: {resultados: data.results}});
         })    
     }
     

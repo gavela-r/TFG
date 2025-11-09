@@ -3,7 +3,8 @@ import { useContext } from 'react';
 import { CarritoContext } from '../../context/CarritoContext';
 export function Carrito(){
     const {carrito, eliminarDelCarrito} = useContext(CarritoContext);
-    const total = carrito.reduce((acc, juego) => acc + juego.precio, 0)
+    const total = carrito.reduce((acc, juego) => acc + parseFloat(juego.precio), 0).toFixed(2);
+
     return(
         <>
             <div className="carritoModal">
@@ -22,17 +23,17 @@ export function Carrito(){
                         <i className="fa-solid fa-trash basura" onClick={() => eliminarDelCarrito(juego.nombre)}></i>
                         </div>
                     </div>
-                    ))}
 
-                    </div>
+                    ))}     
+                </div>
                 <div className='precio'>
                     <div className='totalJuego'>
                         <p className='totalParcial'>Total Parcial</p>
                         <p className='total'>Total</p>
                     </div>
                     <div className='cantidad'>
-                        <p className='precioParcial'></p>
-                        <p className='precioTotal'></p>
+                        <p className='precioParcial'>{total}</p>
+                        <p className='precioTotal'>{total}</p>
                     </div>
                 </div>
                 <form action="" meethod='post' className='formularioComprar'>

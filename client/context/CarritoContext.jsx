@@ -12,6 +12,7 @@ export function CarritoProvider({children}){
         });
     }
 
+
     function eliminarDelCarrito(index){
         console.log(index);
         setCarrito(prev => prev.filter((p)=>p.nombre != index));
@@ -21,15 +22,7 @@ export function CarritoProvider({children}){
         setCarrito([]);
     }
 
-    useEffectEvent(() => {
-        const guardado = localStorage.getItem("carrito");
-            if (guardado) setCarrito(JSON.parse(guardado));
-    }, []);
-
-    useEffectEvent(() => {
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-    }, [carrito]);
-
+   
     
     return(
         <CarritoContext.Provider value={{carrito, agregarAlCarrito, eliminarDelCarrito, vaciarCarrito}}>

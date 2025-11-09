@@ -6,9 +6,7 @@ export function ModalCategorias({cerrarModal}){
     const modalRef = useRef(null);
     const instanceRef = useRef(null);
     const navigate = useNavigate();
-    const key = "375e3dcc7ff741a7b2d533c02b445fe6";
     const [categorias, setCategorias] = useState([]);
-    let url = `https://api.rawg.io/api/genres?key=${key}`;
     
    
 
@@ -43,7 +41,7 @@ export function ModalCategorias({cerrarModal}){
     },[categorias])
 
     useEffect(() =>{
-        fetch(url, {
+        fetch("./categorias", {
             method: "GET",
             headers: {
                 "Content-type": "Application/json"
@@ -57,8 +55,8 @@ export function ModalCategorias({cerrarModal}){
             }
         })
         .then(data =>{
+            console.log(data);
             setCategorias(data.results);
-            
         })
     }, [])
 
@@ -83,7 +81,7 @@ export function ModalCategorias({cerrarModal}){
                         <div className="modal-body">
                             <ul className="list-group">
                                 {categorias.map(cat =>(
-                                 <li className="listaCategorias" key={cat.id} onClick={() => handleClick(cat.slug)}>{cat.name}</li>
+                                 <li className="listaCategorias" key={cat.id} onClick={() => handleClick(cat.nombre)}>{cat.nombre}</li>
 
                                 ))}
                             </ul>
