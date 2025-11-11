@@ -2,22 +2,22 @@ import { Link, useNavigate } from 'react-router-dom'
 import '../css/login.css'
 import { useState } from 'react'
 
-    export const saveLocalStorage = (token, nombre, rol, correo, dni) =>{
-        localStorage.setItem("token", token);
-        localStorage.setItem("nombre", nombre);
-        localStorage.setItem("rol", rol);
-        localStorage.setItem("dni", dni)
-        localStorage.setItem("correo", correo);
+const saveLocalStorage = (token, nombre, rol, correo, dni) =>{
+    localStorage.setItem("token", token);
+    localStorage.setItem("nombre", nombre);
+    localStorage.setItem("rol", rol);
+    localStorage.setItem("dni", dni)
+    localStorage.setItem("correo", correo);
         
-    }
+}
 
-    export function Login(){
-        const navigate = useNavigate()
-        const [loginData, setLoginData] = useState({
-            correo: "",
-        });
-
-
+export function Login(){
+    const navigate = useNavigate()
+    const [loginData, setLoginData] = useState({
+           correo: "",
+    });
+    const [toast, setToast] = useState({show: false, message: "", type: "success"});
+    
 
     const handleChange = (e) =>{
         const {name, value, type } = e.target;
@@ -52,6 +52,8 @@ import { useState } from 'react'
 
         .then(data =>{
             saveLocalStorage(data.token, data.user, data.rol, data.correo, data.dni);
+            localStorage.setItem("toastMessage", "Inicio de sesión exitoso");
+            localStorage.setItem("toastType", "success");
             navigate("/principal");
         })
     }
@@ -71,5 +73,6 @@ import { useState } from 'react'
                 <p className='noCuenta'>¿No tienes cuenta?</p><Link to='/registrarse' className='registrarse'>Registrate</Link>
             </div>
         </div>
+        
     )
 }

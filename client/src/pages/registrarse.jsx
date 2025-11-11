@@ -63,12 +63,16 @@ export function Registro(){
         fetch('user/registro', options)
         .then(res =>{
             if(!res.ok){
+                localStorage.setItem("toastMessage", "No se pudo registrar al usuario");
+                localStorage.setItem("type", "danger");
                 throw new Error("error en la peticion")
             }else{
                 return res.json();
             }
         })
         .then(data =>{
+            localStorage.setItem("toastMessage", "Usuario registrado correctamente");
+            localStorage.setItem("type", "success");
             navigate('/login');
         })
         .catch(err =>{

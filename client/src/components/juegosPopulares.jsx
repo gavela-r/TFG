@@ -83,13 +83,17 @@ export function JuegosPopulares () {
             <ModalLoading show={loading}/>
             <h1 className="populares">Juegos Populares</h1>
             <div className="juegos">
-                {juegosVisibles.slice(0, jueogPerPage).map((juego, index) =>(
+                {juegosVisibles.length === 0 ? (
+                    <h5>No se ha encontrado ningun juego</h5>
+                ) : (
+
+                juegosVisibles.slice(0, jueogPerPage).map((juego, index) =>(
                     <div key={index} className='juego'>
                         <i className={`fa-solid fa-heart corazon ${favoritos.find(f => f.id === juego.id) ? "activo" : ''}`} onClick={() => favorito(juego)}></i>
                         <img src={juego.foto} alt={juego.nombre} className="fotoJuego"/>
                         <div className="descripcion">
                             <h2>{juego.nombre}</h2>
-                            <p>{new Date(juego.fecha).toLocaleDateString('es-ES')}</p>
+                            <p>{new Date(juego.fecha_lanzamiento).toLocaleDateString('es-ES')}</p>
                         </div>
                         <div className="boton" onClick={() => agregarAlCarrito({
                             nombre: juego.nombre,
@@ -97,7 +101,8 @@ export function JuegosPopulares () {
                             imagen: juego.foto,
                             precio: juego.precio,
                         })}>Comprar</div>
-                    </div>
+                        </div>
+                    )
                 ))}
             </div>
         </>

@@ -86,15 +86,15 @@ export function EditarPerfil(){
             <h1 className="tituloUnete">Edita tu Perfil</h1>
             <form action="" method="post" onSubmit={dataFormulario}>
                 <label htmlFor="nombre" className="nombre">Nombre de usuario</label>
-                <input type="text" name="nombre" id="nombre" placeholder={userName} onChange={handleChange}/>
+                <input type="text" name="nombre" id="nombre" value={userName} onChange={handleChange}/>
                 <label htmlFor="correo" className="correo">Correo electronico</label>
-                <input type="email" name="correo" id="correo" placeholder={correo} onChange={handleChange}/>
+                <input type="email" name="correo" id="correo" value={correo} onChange={handleChange}/>
                 <label htmlFor="pass" className="pass">Cambiar contraseña</label>
                 <input type="password" name="pass" id="pass" onChange={handleChange}/>
                 <label htmlFor="pass" className="pass">Confirmar Contraseña</label>
                 <input type="password" name="confirmPass" id="confirmPass" onChange={handleChange}/>
                 <label htmlFor="dni" className="dni">DNI o NIF</label>
-                <input type="text" name="dni" id="dni" placeholder={dni} onChange={handleChange}/>
+                <input type="text" name="dni" id="dni" value={dni} onChange={handleChange}/>
                 <label htmlFor="fecha" className="fecha">Fecha de nacimiento</label>
                 <input type="date" name="fecha" id="fecha" onChange={handleChange}/>
                 <input type="submit" value="Crear cuenta" name="enviar" className="botonRegistro"/>

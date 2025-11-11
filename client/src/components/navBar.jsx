@@ -1,16 +1,49 @@
 import { useNavigate } from "react-router-dom";
 import "../css/navBar.css";
+import { useEffect } from "react";
+import { Offcanvas } from 'bootstrap';
+
 export function NavBar(){
     const userName = localStorage.getItem('nombre');
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const offcanvasElement = document.getElementById("offcanvasRight");
+        if (offcanvasElement) {
+            new Offcanvas(offcanvasElement, {
+                backdrop: "static",
+                keyboard: false,
+            });
+        }
+    }, []);
+    
+    function closeOffcanvas(){
+        const offcanvasElement = document.getElementById("offcanvasRight");
+        const offCanvasInstance = Offcanvas.getInstance(offcanvasElement);
+        if(offCanvasInstance){
+            offCanvasInstance.hide();
+        }
+    
+        setTimeout(() => {
+            document.body.classList.remove("offcanvas-backdrop", "modal-open");
+            document.body.style.overflow = "auto";
+            const backdrop = document.querySelector(".offcanvas-backdrop");
+            if (backdrop) backdrop.remove();
+        }, 0);
+    }
+    
+    
     
     function linkPerfil(){
+        closeOffcanvas();
         navigate("/editarPerfil");
     }
 
     function linkFavoritos(){
+        closeOffcanvas();
         navigate("/favoritos");
     }
+
 
     return (
         <>
@@ -22,11 +55,10 @@ export function NavBar(){
                 <hr />
                 <div className="offcanvas-body">
                     <ul className="lista">
-                        <h5><li><i className="icon fa-solid fa-user"></i>Ver Perfil</li></h5>
-                        <h5><li onClick={linkPerfil}><i className="icon fa-solid fa-pen-to-square"></i>Editar Perfil</li></h5>
-                        <h5><li><i className="icon fa-solid fa-cart-shopping" id="carrito"></i>Pedidos</li></h5>
-                        <h5><li><i className="icon fa-solid fa-wallet"></i>Fondos</li></h5>
-                        <h5><li onClick={linkFavoritos}><i className="icon fa-solid fa-heart"></i>Favoritos</li></h5>
+                        <li onClick={linkPerfil}><h5><i class="fa-solid fa-user"></i> Mis Datos Personales</h5></li>
+                        <li><h5><i className="icon fa-solid fa-cart-shopping" id="carrito"></i>Carrito</h5></li>
+                        <li><h5><i className="icon fa-solid fa-wallet"></i>Fondos</h5></li>
+                        <li onClick={linkFavoritos}><h5><i className="icon fa-solid fa-heart"></i>Favoritos</h5></li>
                     </ul>
                 </div>
             </div>

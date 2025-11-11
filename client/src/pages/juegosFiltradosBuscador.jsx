@@ -38,8 +38,11 @@ export function FiltroBuscador(){
                 <Buscador />
                 <main>
                     <div className="juegos">
-                       
-                        {juegosMostrados.map((juego, index) =>(
+                       {juegosMostrados.length === 0 ? (
+                            <h5>No se ha encontro ningun juego</h5>
+                       ) : (
+
+                        juegosMostrados.map((juego, index) =>(
                             <div key={index} className='juego'>
                                 <i className={`fa-solid fa-heart corazon ${favoritos.find(f => f.id === juego.id) ? "activo" : ''}`} onClick={() => favorito(juego)}></i>
                                 <img src={juego.foto} alt={juego.nombre} className="fotoJuego"/>
@@ -54,7 +57,9 @@ export function FiltroBuscador(){
                                     precio: juego.precio,
                                 })}>Comprar</div>
                             </div>
-                        ))}
+                          
+                       ))
+                    )}
                     </div>
                        <div className="paginacion">
                             <button className="anterior" disabled={pagina === 1} onClick={() => setPagina(p => p - 1)}>Anterior</button>

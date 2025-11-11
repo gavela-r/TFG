@@ -8,13 +8,14 @@ import { Login } from './pages/login'
 import { Layout } from './components/layouts'
 import { Principal } from './pages/principal'
 import { JuegosFiltrados } from './pages/juegosFiltrados'
-import { EditarPerfil} from './pages/editarPerfil'
+import { EditarPerfil } from './pages/editarPerfil'
 import { CarritoProvider } from '../context/CarritoContext';
 import { isTokenExpired } from './helper/auth';
-import {FiltroBuscador} from './pages/juegosFiltradosBuscador'
-import {Favoritos} from "./pages/favoritos";
+import { FiltroBuscador } from './pages/juegosFiltradosBuscador'
+import { Favoritos } from "./pages/favoritos";
 import { useEffect } from 'react';
-import { FavoritosContext, FavoritosProvider } from '../context/FavoritosContext';
+import { FavoritosProvider } from '../context/FavoritosContext';
+
 
 function App() {
   const navigate = useNavigate();
