@@ -60,7 +60,7 @@ export function Registro(){
             },
             body: JSON.stringify(dataUser)
         }
-        fetch('user/registro', options)
+        fetch('userios/registro', options)
         .then(res =>{
             if(!res.ok){
                 localStorage.setItem("toastMessage", "No se pudo registrar al usuario");

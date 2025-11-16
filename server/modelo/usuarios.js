@@ -1,36 +1,36 @@
-class usuario{
-    #id;
-    #nombre;
-    #correo;
-    #pass;
-    #dni;
-    #fecha;
+class Usuario{
+    id;
+    nombre;
+    correo;
+    pass;
+    dni;
+    fecha;
 
     constructor(nombre, correo, pass, fecha, dni){
-        this.#nombre = nombre;
-        this.#correo = correo;
-        this.#pass = pass;
-        this.#fecha = fecha;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.pass = pass;
+        this.fecha = fecha;
     }
 
     getNombre(){
-        return this.#nombre;
+        return this.nombre;
     }
 
     getCorreo(){
-        return this.#correo;
+        return this.correo;
     }
 
     getPass(){
-        return this.#pass;
+        return this.pass;
     }
 
     getFecha(){
-        return this.#fecha;
+        return this.fecha;
     }
 
     getDni(){
-        return this.#dni;
+        return this.dni;
     }
 
 }

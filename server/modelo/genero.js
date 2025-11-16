@@ -1,12 +1,19 @@
-class genero{
-    #id;
-    #nombre;
+class Genero{
+    id;
+    nombre;
 
-    constructor(nombre) {
-        this.#nombre = nombre;
+    constructor(id, nombre) {
+        this.id = id;
+        this.nombre = nombre;
+    }
+
+    getId(){
+        return this.id;
     }
 
     getNombre(){
-        return this.#nombre
+        return this.nombre
     }
 }
+
+module.exports = Genero

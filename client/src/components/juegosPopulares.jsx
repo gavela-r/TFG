@@ -77,7 +77,7 @@ export function JuegosPopulares () {
             })
         }
     }
-        console.log(favoritos);
+        
     return (
         <>
             <ModalLoading show={loading}/>
@@ -86,7 +86,6 @@ export function JuegosPopulares () {
                 {juegosVisibles.length === 0 ? (
                     <h5>No se ha encontrado ningun juego</h5>
                 ) : (
-
                 juegosVisibles.slice(0, jueogPerPage).map((juego, index) =>(
                     <div key={index} className='juego'>
                         <i className={`fa-solid fa-heart corazon ${favoritos.find(f => f.id === juego.id) ? "activo" : ''}`} onClick={() => favorito(juego)}></i>

@@ -41,7 +41,7 @@ export function Login(){
             body: JSON.stringify(loginData)
         }
 
-        fetch("user/login", option)
+        fetch("userios", option)
         .then(res => {
             if(res.ok){
                 return res.json();

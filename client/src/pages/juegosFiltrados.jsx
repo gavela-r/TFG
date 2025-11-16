@@ -22,7 +22,7 @@ export function JuegosFiltrados(){
 
     useEffect(() =>{
         setLoading(true)
-        fetch(`/filtroCategoria?genero=${genero}&pagina=${pagina}&limite=${juegosPerPage}`, {
+        fetch(`/juegos/filtro?genero=${genero}&pagina=${pagina}&limite=${juegosPerPage}`, {
             method: 'GET',
             headers: {
                 "Content-Type": "application/json"

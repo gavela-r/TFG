@@ -6,10 +6,9 @@ export default defineConfig({
   plugins: [react()],
    server:{
     proxy:{
-      "/user": "http://localhost:5000",
+      "/userios": "http://localhost:5000",
       "/juegos": "http://localhost:5000",
       "/categorias": "http://localhost:5000",
-      "/filtroCategoria": "http://localhost:5000",
     }
   }
 })
