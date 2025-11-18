@@ -44,6 +44,11 @@ export function NavBar(){
         navigate("/favoritos");
     }
 
+    function linkCarrito(){
+        closeOffcanvas();
+        navigate("/carrito");
+    }
+
 
     return (
         <>
@@ -56,7 +61,7 @@ export function NavBar(){
                 <div className="offcanvas-body">
                     <ul className="lista">
                         <li onClick={linkPerfil}><h5><i class="fa-solid fa-user"></i> Mis Datos Personales</h5></li>
-                        <li><h5><i className="icon fa-solid fa-cart-shopping" id="carrito"></i>Carrito</h5></li>
+                        <li onClick={linkCarrito}><h5><i className="icon fa-solid fa-cart-shopping" id="carrito"></i>Carrito</h5></li>
                         <li><h5><i className="icon fa-solid fa-wallet"></i>Fondos</h5></li>
                         <li onClick={linkFavoritos}><h5><i className="icon fa-solid fa-heart"></i>Favoritos</h5></li>
                     </ul>

@@ -15,6 +15,7 @@ import { FiltroBuscador } from './pages/juegosFiltradosBuscador'
 import { Favoritos } from "./pages/favoritos";
 import { useEffect } from 'react';
 import { FavoritosProvider } from '../context/FavoritosContext';
+import { Compra } from './pages/compra';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
               <Route path='/juegosFiltradosBuscador' element={<FiltroBuscador />} />
               <Route path='/editarPerfil' element={<EditarPerfil />} />
               <Route path='/favoritos' element={<Favoritos />} />
+              <Route path='/compra' element={<Compra />} />
             </Route>
           </Routes>
         </CarritoProvider>
