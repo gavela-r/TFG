@@ -58,7 +58,7 @@ export function EditarPerfil(){
             return;
         }
 
-        fetch("userios/editar",{
+        fetch("usuarios/editar",{
             method: "POST",
             headers: {
                 "Content-Type": "Application/json",

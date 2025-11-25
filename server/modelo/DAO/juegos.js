@@ -17,7 +17,16 @@ function obtenerJuegos(req, res){
             }else{
                 result.map(j =>{
                     let juego = new Juego(j.id, j.nombre, j.precio, j.fecha_lanzamiento, j.desarrollador, j.Pegi, j.foto);
-                    juegos.push(juego);
+                    juegos.push({
+                        id: juego.Id,
+                        nombre: juego.Nombre,
+                        precio: juego.Precio,
+                        fecha_lanzamiento: juego.FechaLanzamiento,
+                        desarrollador: juego.Desarrollador,
+                        pegi: juego.Pegi,
+                        foto: juego.Foto
+                    });
+
                     
                 });
                 return res.status(200).json({results: juegos});
@@ -56,7 +65,16 @@ function filtroCategoria(req, res){
             }else{
                 result.forEach(j =>{
                     let juegoFiltro = new Juego(j.id, j.nombre, j.precio, j.fecha_lanzamiento, j.desarrollador, j.pegi, j.foto);
-                    juegosFiltros.push(juegoFiltro);
+                      juegosFiltros.push({
+                        id: juegoFiltro.Id,
+                        nombre: juegoFiltro.Nombre,
+                        precio: juegoFiltro.Precio,
+                        fecha_lanzamiento: juegoFiltro.FechaLanzamiento,
+                        desarrollador: juegoFiltro.Desarrollador,
+                        pegi: juegoFiltro.Pegi,
+                        foto: juegoFiltro.Foto
+                    });
+
                 })
                 return res.status(200).json({results: juegosFiltros});
             }

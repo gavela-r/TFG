@@ -4,53 +4,53 @@ const jwt = require("jsonwebtoken");
 const secret = "claveSecreta";
 const Usuario = require("../usuarios");
 
-function loginUsuario(req, res){
+function loginUsuario(req, res) {
   const { correo, pass } = req.body;
-  const usuarios = [];
 
   if (!correo || !pass) {
     return res.status(400).json({ Error: 'Campos vacíos' });
   }
 
-  const sql = `SELECT * FROM usuarios WHERE correo = '${correo}'`;
+  const sql = `SELECT * FROM usuarios WHERE correo = ?`;
+  const params = [correo];
 
-  bd.query(sql, (err, result) =>{
-    if(err){
-      return res.status(500).json({ Error: 'Error en la consulta' })
+  bd.query(sql, params, (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ Error: 'Error en la consulta' });
     }
 
-    if(result.length === 0){
+    if (result.length === 0) {
       return res.status(404).json({ Error: 'Correo no encontrado' });
-      
     }
 
-     result.forEach(u =>{
-        let usuario = new Usuario(u.nombre, u.correo, u.contrasena, u.fecha_nacimiento, u.dni);
-        usuarios.push(usuario);
-     })
-      const passConfirm = bcrypt.compareSync(pass, user.contrasena);
-    
-      if (!passConfirm) {
-        return res.status(401).json({ Error: 'Contraseña incorrecta' });
-      }
-    
-      const token = jwt.sign(
-        {
-          id: usuarios.id,
-          nombre: usuarios.nombre,
-          rol: usuarios.rol,
-        },
-        secret,
-        { expiresIn: '24h' }
-      );
-    
-      return res.status(200).json({
-        message: "Login correcto",
-        token: token,
-        user: usuarios.nombre,
-        rol: usuarios.rol,
-      });
-  })
+    const u = result[0];
+    const usuario = new Usuario(u.id, u.nombre, u.correo, u.contrasena, u.fecha_nacimiento, u.dni, u.rol);
+
+    const passConfirm = bcrypt.compareSync(pass, usuario.Pass);
+    if (!passConfirm) {
+      return res.status(401).json({ Error: 'Contraseña incorrecta' });
+    }
+
+    const token = jwt.sign(
+      {
+        id: usuario.Id,
+        nombre: usuario.Nombre,
+        rol: usuario.Rol,
+      },
+      secret,
+      { expiresIn: '24h' }
+    );
+
+    return res.status(200).json({
+      message: "Login correcto",
+      token: token,
+      user: usuario.Nombre,
+      rol: usuario.Rol,
+      correo: usuario.Correo,
+      dni: usuario.Dni
+    });
+  });
 }
 
 function validar(email, contrasena, dni){

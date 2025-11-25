@@ -1,0 +1,130 @@
+.carritoFinal{
+    display: flex;
+    flex-direction: row;
+}
+
+hr{
+    width: 99%;
+}
+
+.productoFinal{
+    margin: 0px;
+    width: 70%;
+}
+.articulos{
+    margin: 0px 550px 0px 0px;
+}
+
+.titulos{
+    display: flex;
+    justify-content: start;
+    margin-top: 20px;
+}
+
+.precioTitulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+}
+
+.accionesTitulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 90px;
+}
+.productoCarrito{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+.imagen{
+    width: 100px;
+    height: 100px; 
+    margin: 0px 20px;
+}
+
+.datosJuego{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin: 0px;
+}
+
+.precio{
+    border: 0px;
+}
+
+.datos{
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contador{
+    margin: 0px;
+    color: black;
+    padding: 10px;
+}
+.mas{
+    padding: 0px;
+    height: 30px;
+    width: 30px;
+    margin-right: 20px;
+}
+
+.menos{
+    padding: 0px;
+    height: 30px;
+    width: 30px;
+}
+
+.contador{
+    padding: 5px;
+}
+
+.fechaFinal{
+    margin: 0px;
+}
+
+.acciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+}
+
+.añadirEliminar{
+   display: flex;
+   flex-direction: row;
+   margin-top: 10px;
+}
+
+.pagar{
+    border: solid 1px rgb(191, 187, 187);
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.btnPagar{
+    margin-top: 5%;
+    margin-left: 5%;
+    border-radius: 10px;
+    height: 45px;
+    width: 300px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+

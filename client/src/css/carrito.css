@@ -9,12 +9,12 @@
     left: 65%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Empuja los precios al fondo */
+    justify-content: space-between; 
 }
 
 .contenidoCarrito {
-    flex-grow: 1; /* Ocupa el espacio disponible arriba */
-    overflow-y: auto; /* Scroll si hay muchos productos */
+    flex-grow: 1; 
+    overflow-y: auto; 
     margin: 0px;
 }
 

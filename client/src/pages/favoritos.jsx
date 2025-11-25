@@ -31,6 +31,7 @@ export function Favoritos() {
                             <div className="descripcion">
                                 <h2>{juego.nombre}</h2>
                                 <p>{new Date(juego.fecha).toLocaleDateString('es-ES')}</p>
+                                <p>{juego.precio}</p>
                             </div>
                             <div className="boton" onClick={() =>
                                     agregarAlCarrito({

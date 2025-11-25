@@ -11,7 +11,10 @@ function obtenerGeneros(req, res){
             }else{
                 result.forEach(g =>{
                     let genero = new Genero(g.id, g.nombre);
-                    generos.push(genero);
+                    generos.push({
+                        id: genero.id,
+                        nombre: genero.nombre
+                    });
                 })
                 return res.status(200).json({results: generos})
             }

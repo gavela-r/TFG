@@ -23,10 +23,11 @@ export function NavBar(){
         if(offCanvasInstance){
             offCanvasInstance.hide();
         }
-    
+        
         setTimeout(() => {
             document.body.classList.remove("offcanvas-backdrop", "modal-open");
-            document.body.style.overflow = "auto";
+            document.body.style.overflow = "";
+            document.body.style.paddingRight = "";
             const backdrop = document.querySelector(".offcanvas-backdrop");
             if (backdrop) backdrop.remove();
         }, 0);
@@ -46,7 +47,7 @@ export function NavBar(){
 
     function linkCarrito(){
         closeOffcanvas();
-        navigate("/carrito");
+        navigate("/compra");
     }
 
 

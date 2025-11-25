@@ -7,11 +7,11 @@ class Genero{
         this.nombre = nombre;
     }
 
-    getId(){
+    get Id(){
         return this.id;
     }
 
-    getNombre(){
+    get Nombre(){
         return this.nombre
     }
 }

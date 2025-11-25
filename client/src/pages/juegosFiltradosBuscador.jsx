@@ -49,6 +49,7 @@ export function FiltroBuscador(){
                                 <div className="descripcion">
                                     <h2>{juego.nombre}</h2>
                                     <p>{new Date(juego.fecha_lanzamiento).toLocaleDateString('es-ES')}</p>
+                                    <p>{juego.precio}</p>
                                 </div>
                                 <div className="boton" onClick={() => agregarAlCarrito({
                                     nombre: juego.nombre,

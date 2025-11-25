@@ -1,36 +1,50 @@
-class Usuario{
+class Usuarios{
     id;
     nombre;
     correo;
     pass;
     dni;
     fecha;
+    rol;
 
-    constructor(nombre, correo, pass, fecha, dni){
+    constructor(id, nombre, correo, pass, fecha, dni, rol){
+        this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.pass = pass;
         this.fecha = fecha;
+        this.dni = dni
+        this.rol = rol;
     }
 
-    getNombre(){
+    get Id(){
+        return this.id;
+    }
+
+    get Nombre(){
         return this.nombre;
     }
 
-    getCorreo(){
+    get Correo(){
         return this.correo;
     }
 
-    getPass(){
+    get Pass(){
         return this.pass;
     }
 
-    getFecha(){
+    get Fecha(){
         return this.fecha;
     }
 
-    getDni(){
+    get Dni(){
         return this.dni;
-    }
+    }
+
+    get Rol(){
+        return this.rol;
+    }
 
 }
+
+module.exports = Usuarios;

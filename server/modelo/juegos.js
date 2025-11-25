@@ -17,31 +17,31 @@ class Juego{
         this.foto = foto;  
     }
 
-    getId(){
+    get Id(){
         return this.id
     }
 
-    getNombre(){
+    get Nombre(){
         return this.nombre;
     }
 
-    getPrecio(){
+    get Precio(){
         return this.precio;
     }
 
-    getFechaLanzamiento(){
+    get FechaLanzamiento(){
         return this.fecha_lanzamiento;
     }
 
-    getDesarrollador(){
+    get Desarrollador(){
         return this.desarrollador;
     }
 
-    getPegi(){
+    get Pegi(){
         return this.pegi;
     }
 
-    getFoto(){
+    get Foto(){
         return this.foto;
     }
 }
